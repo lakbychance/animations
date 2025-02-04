@@ -75,7 +75,7 @@ const GooeyContent = ({ children }: GooeyContentProps) => (
           duration: 0.1,
         },
       }}
-      className="flex w-full h-full items-center justify-center pointer-events-none"
+      className="flex w-full h-full text-center items-center justify-center pointer-events-none"
     >
       {children}
     </motion.div>
@@ -151,7 +151,7 @@ const GooeyPopoverComponent = ({ children }: { children: ReactNode }) => {
       </Popover.Trigger>
       <AnimatePresence>
         {open && (
-          <Popover.Content forceMount align="start">
+          <Popover.Content forceMount align="center" side="top">
             <GooeyContent open={open}>{children}</GooeyContent>
           </Popover.Content>
         )}
@@ -185,7 +185,7 @@ export const GooeyTooltip = () => {
       </div>
       {isSafari && (
         <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-zinc-400">
-          * Effect not supported in Safari
+          * Effect not supported in this browser (Thanks Webkit)
         </div>
       )}
     </div>
