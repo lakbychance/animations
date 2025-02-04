@@ -391,61 +391,63 @@ export const LinearProductThinking = () => {
   }, []); // Run once on mount
 
   return (
-    <AnimatePresence mode="popLayout">
-      {!isCanvasVisible && window.innerWidth >= 768 && (
-        <motion.h1
-          key="title"
-          className="absolute text-[#f7f8f8] text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  text-[72px] leading-[80px] md:leading-[68px] tracking-[-1.43px] cursor-pointer md:whitespace-nowrap "
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          transition={{
-            duration: 2,
-            ease: "easeIn",
-          }}
-          onAnimationComplete={() => {
-            setIsCanvasVisible(true);
-          }}
-        >
-          Set the product direction
-        </motion.h1>
-      )}
-
-      <motion.div
-        onClick={handleMove}
-        className="relative overflow-hidden cursor-pointer w-full max-w-[696px]"
-      >
-        {isCanvasVisible && (
-          <motion.canvas
-            initial={{ opacity: 0, filter: "blur(4px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, filter: "blur(4px)" }}
-            transition={{ duration: 1 }}
-            ref={canvasRef}
-            height="480"
-            className="w-full h-[240px]"
-          ></motion.canvas>
-        )}
-        {isCanvasVisible && (
-          <motion.div
-            ref={ref}
-            aria-hidden="true"
-            initial={{ opacity: window.innerWidth < 768 ? 0 : 1 }}
+    <div className="flex flex-col justify-center items-center h-screen w-full bg-[#08090a]">
+      <AnimatePresence mode="popLayout">
+        {!isCanvasVisible && window.innerWidth >= 768 && (
+          <motion.h1
+            key="title"
+            className="absolute text-[#f7f8f8] text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  text-[72px] leading-[80px] md:leading-[68px] tracking-[-1.43px] cursor-pointer md:whitespace-nowrap "
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="absolute will-change-transform h-[10px] w-[10px] top-0 bg-[#f7f8f8] rounded-full"
-            style={
-              {
-                transition: "transform 0.5s cubic-bezier(.7,.12,.04,1.01)",
-                transform:
-                  "translate(-50%,-50%) translateX(var(--mouse-x, 375px)) translateY(var(--mouse-y, 75px))",
-                "--mouse-x": initialPosition.x,
-                "--mouse-y": initialPosition.y,
-              } as React.CSSProperties
-            }
-          ></motion.div>
+            exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            transition={{
+              duration: 2,
+              ease: "easeIn",
+            }}
+            onAnimationComplete={() => {
+              setIsCanvasVisible(true);
+            }}
+          >
+            Set the product direction
+          </motion.h1>
         )}
-      </motion.div>
-    </AnimatePresence>
+
+        <motion.div
+          onClick={handleMove}
+          className="relative overflow-hidden cursor-pointer w-full max-w-[696px]"
+        >
+          {isCanvasVisible && (
+            <motion.canvas
+              initial={{ opacity: 0, filter: "blur(4px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, filter: "blur(4px)" }}
+              transition={{ duration: 1 }}
+              ref={canvasRef}
+              height="480"
+              className="w-full h-[240px]"
+            ></motion.canvas>
+          )}
+          {isCanvasVisible && (
+            <motion.div
+              ref={ref}
+              aria-hidden="true"
+              initial={{ opacity: window.innerWidth < 768 ? 0 : 1 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="absolute will-change-transform h-[10px] w-[10px] top-0 bg-[#f7f8f8] rounded-full"
+              style={
+                {
+                  transition: "transform 0.5s cubic-bezier(.7,.12,.04,1.01)",
+                  transform:
+                    "translate(-50%,-50%) translateX(var(--mouse-x, 375px)) translateY(var(--mouse-y, 75px))",
+                  "--mouse-x": initialPosition.x,
+                  "--mouse-y": initialPosition.y,
+                } as React.CSSProperties
+              }
+            ></motion.div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 };

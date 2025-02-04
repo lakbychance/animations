@@ -1,11 +1,16 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home";
 import { LinearProductThinking } from "./components/LinearProductThinking";
+import "./App.css";
+import { GooeyTooltip } from "./components/GooeyTooltip";
 
 function App() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full bg-[#08090a]">
-      <LinearProductThinking />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/product-thinking" element={<LinearProductThinking />} />
+      <Route path="/gooey-tooltip" element={<GooeyTooltip />} />
+    </Routes>
   );
 }
 
