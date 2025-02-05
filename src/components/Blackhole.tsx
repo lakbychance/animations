@@ -186,7 +186,7 @@ export const Blackhole = () => {
             }
             100% {
               transform: translateZ(30px) rotate(10deg);
-              filter: blur(3px);
+              filter: blur(2px);
             }
           }
         }
