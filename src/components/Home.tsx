@@ -14,6 +14,10 @@ const animations: AnimationCard[] = [
     title: "Gooey Tooltip",
     route: "/gooey-tooltip",
   },
+  {
+    title: "Blackhole 2D",
+    route: "/blackhole-2d",
+  },
 ];
 
 export function Home() {

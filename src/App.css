@@ -2,3 +2,12 @@
 body {
   font-family: "Tiempos", Arial, sans-serif !important;
 }
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button > svg {
+  outline: none;
+}
