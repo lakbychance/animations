@@ -13,7 +13,7 @@ export const Card = ({ children, href }: CardProps) => {
       animate={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.5 }}
       href={href}
-      className="bg-[#1a1a1a] text-white p-8 rounded-lg cursor-pointer border border-transparent hover:border-white transition-colors duration-300 focus:outline-0 focus-visible:border-white"
+      className="bg-[#1a1a1a] text-base lg:text-xl items-center justify-center flex text-white p-8 rounded-lg cursor-pointer border border-transparent hover:border-white transition-colors duration-300 focus:outline-0 focus-visible:border-white"
     >
       {children}
     </motion.a>

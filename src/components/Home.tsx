@@ -18,12 +18,16 @@ const animations: AnimationCard[] = [
     title: "Blackhole 2D",
     route: "/blackhole-2d",
   },
+  {
+    title: "Peerlist Scroll Feed Tabs",
+    route: "/peerlist-scroll-feed-tabs",
+  },
 ];
 
 export function Home() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full bg-[#08090a]">
-      <div className="font-mono grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 p-4">
+    <div className="h-screen w-full bg-[#08090a]">
+      <div className="font-mono grid lg:grid-cols-2 h-full gap-4 p-4">
         {animations.map((animation) => (
           <Card key={animation.route} href={animation.route}>
             {animation.title}
