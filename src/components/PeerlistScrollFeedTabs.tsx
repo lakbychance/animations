@@ -79,6 +79,21 @@ const InteractiveTabsLink = forwardRef<
   <TabsLink ref={ref} className={twMerge("py-2", className)} {...restOfProps} />
 ));
 
+const calculateNewCircleSize = (
+  gradientXPositionInPercent: number,
+  currentGradientPositionInPercent: number,
+  rectWidth: number
+) => {
+  const gradientDistance =
+    ((Math.abs(gradientXPositionInPercent - currentGradientPositionInPercent) *
+      rectWidth) /
+      100) *
+    CONSTANTS.GRADIENT_MULTIPLIER;
+  return `${
+    CONSTANTS.DEFAULT_CIRCLE_SIZE + gradientDistance - CONSTANTS.DISTANCE_OFFSET
+  }px`;
+};
+
 export const PeerlistScrollFeedTabs = () => {
   const [activeTab, setActiveTab] = useState({
     name: "newest",
@@ -112,56 +127,30 @@ export const PeerlistScrollFeedTabs = () => {
     setCircleSize(`${CONSTANTS.DEFAULT_CIRCLE_SIZE}px`);
   };
 
-  const getGradientPosition = (tab: string) => {
-    switch (tab) {
-      case TABS.NEWEST:
-        return GRADIENT_POSITIONS[TABS.NEWEST];
-      case TABS.TRENDING:
-        return GRADIENT_POSITIONS[TABS.TRENDING];
-      case TABS.FOLLOWING:
-        return GRADIENT_POSITIONS[TABS.FOLLOWING];
-      default:
-        return GRADIENT_POSITIONS[TABS.NEWEST];
-    }
-  };
-
-  const getGradientDistanceMultiplier = (tab: string) => {
-    switch (tab) {
-      case TABS.NEWEST:
-        return CONSTANTS.GRADIENT_MULTIPLIER;
-      case TABS.TRENDING:
-        return CONSTANTS.GRADIENT_MULTIPLIER;
-      case TABS.FOLLOWING:
-        return CONSTANTS.GRADIENT_MULTIPLIER;
-      default:
-        return CONSTANTS.GRADIENT_MULTIPLIER;
-    }
-  };
+  const getGradientPosition = (tab: string) =>
+    GRADIENT_POSITIONS[tab as keyof typeof GRADIENT_POSITIONS] ??
+    GRADIENT_POSITIONS[TABS.NEWEST];
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const gradientXPositionInPercent =
       ((e.clientX - rect.left) / rect.width) * 100;
-
     const currentGradientPositionInPercent = getGradientPosition(
       activeTab.name
     );
 
     const interpolatedGradientPositionInPercent =
       currentGradientPositionInPercent +
-      (gradientXPositionInPercent - currentGradientPositionInPercent) * 0.3;
+      (gradientXPositionInPercent - currentGradientPositionInPercent) *
+        CONSTANTS.INTERPOLATION_FACTOR;
 
-    const gradientDistance =
-      ((Math.abs(
-        gradientXPositionInPercent - currentGradientPositionInPercent
-      ) *
-        rect.width) /
-        100) *
-      getGradientDistanceMultiplier(activeTab.name);
-    const distanceOffset = 25;
-    const minCircleSize = 250;
-    const newCircleSize = minCircleSize + gradientDistance - distanceOffset;
-    setCircleSize(`${newCircleSize}px`);
+    setCircleSize(
+      calculateNewCircleSize(
+        gradientXPositionInPercent,
+        currentGradientPositionInPercent,
+        rect.width
+      )
+    );
     setGradientPositionPercentage(interpolatedGradientPositionInPercent);
   };
 
@@ -254,12 +243,7 @@ export const PeerlistScrollFeedTabs = () => {
                 </InteractiveTabsLink>
               </Tabs.Trigger>
               <motion.div
-                className="absolute inset-0 flex pointer-events-none bg-clip-text"
-                style={{
-                  backgroundImage: `linear-gradient(to right, rgb(var(--green-200)), rgb(var(--green-200)))`,
-                  backgroundSize: "100% 100%",
-                  backgroundRepeat: "no-repeat",
-                }}
+                className="absolute inset-0 flex pointer-events-none"
                 initial={false}
                 animate={{
                   clipPath: `inset(0 ${activeTab.rightPercentage}% 0 ${activeTab.leftPercentage}%)`,
@@ -288,6 +272,7 @@ export const PeerlistScrollFeedTabs = () => {
                 </InteractiveTabsLink>
               </motion.div>
               <motion.div
+                aria-hidden="true"
                 className="rounded-xl absolute inset-0 -z-5"
                 style={{
                   "--primary-gradient": COLORS.primaryGradient,
