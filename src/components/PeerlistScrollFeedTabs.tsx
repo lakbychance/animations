@@ -188,12 +188,14 @@ export const PeerlistScrollFeedTabs = () => {
       }}
     >
       <div
-        style={{
-          "--gray-00": COLORS.gray00,
-          "--gray-1k": COLORS.gray1k,
-          "--gray-200": COLORS.gray200,
-          "--green-200": COLORS.green200,
-        }}
+        style={
+          {
+            "--gray-00": COLORS.gray00,
+            "--gray-1k": COLORS.gray1k,
+            "--gray-200": COLORS.gray200,
+            "--green-200": COLORS.green200,
+          } as React.CSSProperties
+        }
         className="flex font-[Inter] flex-col justify-center items-center h-screen w-full bg-[rgb(var(--gray-00))]"
       >
         <Tabs.Root value={activeTab.name} onValueChange={onValueChange}>
@@ -245,6 +247,7 @@ export const PeerlistScrollFeedTabs = () => {
               <motion.div
                 className="absolute inset-0 flex pointer-events-none"
                 initial={false}
+                aria-hidden="true"
                 animate={{
                   clipPath: `inset(0 ${activeTab.rightPercentage}% 0 ${activeTab.leftPercentage}%)`,
                 }}
@@ -274,12 +277,13 @@ export const PeerlistScrollFeedTabs = () => {
               <motion.div
                 aria-hidden="true"
                 className="rounded-xl absolute inset-0 -z-5"
-                style={{
-                  "--primary-gradient": COLORS.primaryGradient,
-                  background:
-                    "radial-gradient(var(--circle-size) circle at var(--gradient-position-x), rgb(var(--primary-gradient)) 10%, rgb(var(--gray-200)) 23%)",
-                }}
-                initial={false}
+                style={
+                  {
+                    "--primary-gradient": COLORS.primaryGradient,
+                    background:
+                      "radial-gradient(var(--circle-size) circle at var(--gradient-position-x), rgb(var(--primary-gradient)) 10%, rgb(var(--gray-200)) 23%)",
+                  } as React.CSSProperties
+                }
                 animate={{
                   "--gradient-position-x": `${gradientPositionPercentage}%`,
                   "--circle-size": circleSize,
