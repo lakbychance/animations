@@ -57,7 +57,7 @@ export const GoStepsClubNavigation = () => {
             <div className="h-screen font-[Inter] w-full bg-white">
                 <div className="flex flex-col items-center justify-center h-full">
                     <Tabs.Root
-                        className="relative"
+                        className="relative overflow-hidden"
                         defaultValue={TAB_IDS.HOME}
                         onValueChange={(value) => setActiveTab(value as TabId)}
                     >
@@ -68,7 +68,7 @@ export const GoStepsClubNavigation = () => {
                                 initial={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
                                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                                 transition={{ duration: 1, ease: "easeInOut" }}
-                                className="bg-zinc-800 rounded-full justify-between p-1 flex items-center min-w-[210px] overflow-hidden"
+                                className="bg-zinc-800 rounded-full justify-between p-1 flex items-center min-w-[210px]"
                                 aria-label="Navigation tabs"
                             >
                                 <motion.div
