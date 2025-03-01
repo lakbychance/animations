@@ -5,6 +5,7 @@ import "./App.css";
 import { GooeyTooltip } from "./components/GooeyTooltip";
 import { Blackhole } from "./components/Blackhole";
 import { PeerlistScrollFeedTabs } from "./components/PeerlistScrollFeedTabs";
+import { GoStepsClubNavigation } from "./components/GoStepsClubNavigation";
 function App() {
   return (
     <div className="antialiased">
@@ -13,6 +14,7 @@ function App() {
         <Route path="/product-thinking" element={<LinearProductThinking />} />
         <Route path="/gooey-tooltip" element={<GooeyTooltip />} />
         <Route path="/blackhole-2d" element={<Blackhole />} />
+        <Route path="/go-steps-club-navigation" element={<GoStepsClubNavigation />} />
         <Route
           path="/peerlist-scroll-feed-tabs"
           element={<PeerlistScrollFeedTabs />}
