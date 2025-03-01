@@ -93,7 +93,7 @@ export const GoStepsClubNavigation = () => {
                                         <button className={clsx("flex items-center gap-1 px-2 py-3 rounded-full relative", activeTab === item.id && "px-5")}   >
                                             <motion.div
                                                 layoutId={`tab-${item.id}`}
-                                                style={{
+                                                animate={{
 
                                                     color: activeTab === item.id ? "#000000" : "#a1a1aa"
                                                 }}
