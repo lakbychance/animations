@@ -1,46 +1,96 @@
 import { Card } from "./Card";
+import LinearProductThinking from '../assets/videos/Linear_Product_Thinking.mp4'
+import GooeyTooltip from '../assets/videos/Gooey_Tooltip.mp4'
+import Blackhole2D from '../assets/videos/Blackhole_2D.mp4'
+import PeerlistScrollFeedTabs from '../assets/videos/Peerlist_Scroll_Feed_Tabs.mp4'
+import GoStepsClubNavigation from '../assets/videos/GoSteps_Club_Navigation.mp4'
 
 interface AnimationCard {
   title: string;
+  titleColor: string;
+  videoSrc: string;
   route: string;
 }
 
 const animations: AnimationCard[] = [
   {
     title: "Linear Product Thinking",
+    titleColor: "text-zinc-400",
+    videoSrc: LinearProductThinking,
     route: "/product-thinking",
   },
   {
     title: "Gooey Tooltip",
+    titleColor: "text-zinc-400",
+    videoSrc: GooeyTooltip,
     route: "/gooey-tooltip",
   },
   {
     title: "Blackhole 2D",
+    titleColor: "text-zinc-400",
+    videoSrc: Blackhole2D,
     route: "/blackhole-2d",
   },
   {
     title: "Peerlist Scroll Feed Tabs",
+    titleColor: "text-zinc-400",
     route: "/peerlist-scroll-feed-tabs",
+    videoSrc: PeerlistScrollFeedTabs,
   },
   {
-    title: "Go Steps Club Navigation",
+    title: "GoSteps Club Navigation",
+    titleColor: "text-zinc-900",
     route: "/go-steps-club-navigation",
+    videoSrc: GoStepsClubNavigation,
   },
 ];
 
 export function Home() {
   return (
-    <div className="h-screen w-full bg-[#08090a]">
-      <div className="font-mono grid lg:grid-cols-2 h-full place-content-center gap-4 p-4 max-w-2xl mx-auto">
-        {animations.map((animation) => (
-          <Card
-            key={animation.route}
-            href={animation.route}
+    <div className="lg:h-screen w-full bg-[#08090a] p-4">
+      <div className="font-mono grid grid-cols-1 lg:grid-cols-2 gap-4 h-full max-w-6xl mx-auto">
+        <div className="grid gap-4 content-center">
+          {animations.slice(0, Math.ceil(animations.length / 2)).map((animation) => (
+            <Card
+              key={animation.route}
+              href={animation.route}
+            >
+              <div className="relative">
 
-          >
-            {animation.title}
-          </Card>
-        ))}
+                <video
+                  className="aspect-video rounded-lg w-full h-full object-cover"
+                  src={animation.videoSrc}
+                  autoPlay
+                  muted
+                  loop
+                />
+
+                <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>{animation.title}</p>
+              </div>
+            </Card>
+          ))}
+        </div>
+        <div className="grid gap-4 content-center">
+          {animations.slice(Math.ceil(animations.length / 2)).map((animation) => (
+            <Card
+              key={animation.route}
+              href={animation.route}
+            >
+              <div className="relative flex flex-1">
+                <div className="aspect-video w-full">
+                  <video
+                    className="rounded-lg w-full h-full object-cover"
+                    src={animation.videoSrc}
+                    autoPlay
+                    muted
+                    loop
+                  />
+                </div>
+                <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>{animation.title}</p>
+              </div>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

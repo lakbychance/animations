@@ -3,7 +3,6 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { useState, useLayoutEffect, useRef } from "react";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import clsx from "clsx";
-
 const TAB_IDS = {
     HOME: 'home',
     STATS: 'stats',
