@@ -65,6 +65,9 @@ export const GoStepsClubNavigation = () => {
                             asChild
                         >
                             <motion.div
+                                initial={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
                                 className="bg-zinc-800 rounded-full justify-between p-1 flex items-center min-w-[210px] overflow-hidden"
                                 aria-label="Navigation tabs"
                             >
