@@ -43,11 +43,12 @@ const animations: AnimationCard[] = [
     route: "/go-steps-club-navigation",
     videoSrc: GoStepsClubNavigation,
   },
+
 ];
 
 export function Home() {
   return (
-    <div className="lg:h-screen w-full bg-[#08090a] p-4">
+    <div className="w-full min-h-screen bg-[#08090a] p-4">
       <div className="font-mono grid grid-cols-1 lg:grid-cols-2 gap-4 h-full max-w-6xl mx-auto">
         <div className="grid gap-4 content-center">
           {animations.slice(0, Math.ceil(animations.length / 2)).map((animation) => (
@@ -60,8 +61,9 @@ export function Home() {
                 <video
                   className="aspect-video rounded-lg w-full h-full object-cover"
                   src={animation.videoSrc}
-                  autoPlay
+                  playsInline
                   muted
+                  autoPlay
                   loop
                 />
 
@@ -76,13 +78,13 @@ export function Home() {
               key={animation.route}
               href={animation.route}
             >
-              <div className="relative flex flex-1">
+              <div className="relative">
                 <div className="aspect-video w-full">
                   <video
                     className="rounded-lg w-full h-full object-cover"
                     src={animation.videoSrc}
                     autoPlay
-                    muted
+                    playsInline
                     loop
                   />
                 </div>
