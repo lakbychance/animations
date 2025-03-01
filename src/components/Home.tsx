@@ -46,53 +46,40 @@ const animations: AnimationCard[] = [
 
 ];
 
+const VideoCard = ({ animation }: { animation: AnimationCard }) => (
+  <Card href={animation.route}>
+    <div className="relative">
+      <video
+        className="aspect-video rounded-lg w-full h-full object-cover"
+        src={animation.videoSrc}
+        playsInline
+        muted
+        autoPlay
+        loop
+      />
+      <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>
+        {animation.title}
+      </p>
+    </div>
+  </Card>
+);
+
 export function Home() {
   return (
     <div className="w-full min-h-screen bg-[#08090a] p-4">
-      <div className="font-mono grid grid-cols-1 lg:grid-cols-2 gap-4 h-full max-w-6xl mx-auto">
-        <div className="grid gap-4 content-center">
-          {animations.slice(0, Math.ceil(animations.length / 2)).map((animation) => (
-            <Card
-              key={animation.route}
-              href={animation.route}
-            >
-              <div className="relative">
-
-                <video
-                  className="aspect-video rounded-lg w-full h-full object-cover"
-                  src={animation.videoSrc}
-                  playsInline
-                  muted
-                  autoPlay
-                  loop
-                />
-
-                <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>{animation.title}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
-        <div className="grid gap-4 content-center">
-          {animations.slice(Math.ceil(animations.length / 2)).map((animation) => (
-            <Card
-              key={animation.route}
-              href={animation.route}
-            >
-              <div className="relative">
-                <div className="aspect-video w-full">
-                  <video
-                    className="rounded-lg w-full h-full object-cover"
-                    src={animation.videoSrc}
-                    autoPlay
-                    playsInline
-                    loop
-                  />
-                </div>
-                <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>{animation.title}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+      <div className="font-mono grid grid-cols-1 lg:grid-cols-2 gap-4 h-full max-w-[1536px] mx-auto">
+        {[0, 1].map((columnIndex) => (
+          <div key={columnIndex} className="grid gap-4 content-center">
+            {animations
+              .slice(
+                columnIndex * Math.ceil(animations.length / 2),
+                (columnIndex + 1) * Math.ceil(animations.length / 2)
+              )
+              .map((animation) => (
+                <VideoCard key={animation.route} animation={animation} />
+              ))}
+          </div>
+        ))}
       </div>
     </div>
   );
