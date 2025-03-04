@@ -6,6 +6,7 @@ import { GooeyTooltip } from "./components/GooeyTooltip";
 import { Blackhole } from "./components/Blackhole";
 import { PeerlistScrollFeedTabs } from "./components/PeerlistScrollFeedTabs";
 import { GoStepsClubNavigation } from "./components/GoStepsClubNavigation";
+import { Minimap } from "./components/Minimap";
 function App() {
   return (
     <div className="antialiased">
@@ -19,6 +20,7 @@ function App() {
           path="/peerlist-scroll-feed-tabs"
           element={<PeerlistScrollFeedTabs />}
         />
+        <Route path="/minimap" element={<Minimap />} />
       </Routes>
     </div>
   );

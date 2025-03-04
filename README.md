@@ -5,3 +5,4 @@
 - Blackhole - Came across [this](https://rauno.me/craft/vercel#orbit-rings) and the Code completion engine section of https://poolside.ai/ which provided the inspiration for the blackhole. Ultimately settled on stroke-dasharray and stroke-dashoffset to create the effect instead of offsetPath/textPath.
 - Peerlist Scroll Feed Tabs - Recreation of feed tabs navigation animation on [Peerlist](https://peerlist.io/scroll)
 - [Go Steps Club Navigation](https://x.com/spottedinprod/status/1890911058258170075)  - Recreation of bottom navigation experience
+- [Minimap](https://x.com/raunofreiberg/status/1896620025198580039) - Recreation of [Minimap UX](https://rauno.me/craft/minimap) by Rauno
