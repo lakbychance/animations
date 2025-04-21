@@ -89,15 +89,11 @@ const TableCell = ({
 }) => (
 
     // Layout position here ensures that the text doesn't stretch when transition happens between span and input
-    <motion.div layout='position' layoutId={layoutId} className={`${className} truncate`}>
-        <motion.span
-            animate={{
-                opacity: isEditing ? 0.3 : 1,
-                filter: isEditing ? "blur(0.5px)" : "blur(0px)",
-            }}
-        >
-            {children}
-        </motion.span>
+    <motion.div layout='position' layoutId={layoutId} className={`${className} truncate`} animate={{
+        opacity: isEditing ? 0.3 : 1,
+        filter: isEditing ? "blur(0.5px)" : "blur(0px)",
+    }}>
+        {children}
     </motion.div>
 );
 
@@ -155,6 +151,8 @@ export const InlineTableControl = () => {
         focusLastEditTarget();
     };
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
     return (
         <MotionConfig transition={{ duration: 0.5, type: "spring", bounce: 0 }}>
             <div className="h-screen font-[Inter] w-full bg-white">
@@ -198,7 +196,7 @@ export const InlineTableControl = () => {
 
                                 {editingId === expense.id ? (
                                     <motion.div className="col-span-full col-start-1">
-                                        <FocusLock>
+                                        <FocusLock disabled={isMobile}>
                                             <form onKeyDown={(e) => {
                                                 if (e.key === "Escape") {
                                                     handleCancel();
