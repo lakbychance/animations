@@ -7,6 +7,7 @@ import { Blackhole } from "./components/Blackhole";
 import { PeerlistScrollFeedTabs } from "./components/PeerlistScrollFeedTabs";
 import { GoStepsClubNavigation } from "./components/GoStepsClubNavigation";
 import { Minimap } from "./components/Minimap";
+import { InlineTableControl } from "./components/InlineTableControl";
 function App() {
   return (
     <div className="antialiased">
@@ -21,6 +22,7 @@ function App() {
           element={<PeerlistScrollFeedTabs />}
         />
         <Route path="/minimap" element={<Minimap />} />
+        <Route path="/inline-table-control" element={<InlineTableControl />} />
       </Routes>
     </div>
   );

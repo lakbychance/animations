@@ -5,6 +5,7 @@ import Blackhole2D from '../assets/videos/Blackhole_2D.mp4'
 import PeerlistScrollFeedTabs from '../assets/videos/Peerlist_Scroll_Feed_Tabs.mp4'
 import GoStepsClubNavigation from '../assets/videos/GoSteps_Club_Navigation.mp4'
 import Minimap from '../assets/videos/Minimap.mp4'
+import InlineTableControl from '../assets/videos/Inline_Table_Control.mp4'
 interface AnimationCard {
   title: string;
   titleColor: string;
@@ -48,6 +49,12 @@ const animations: AnimationCard[] = [
     titleColor: "text-zinc-400",
     route: "/minimap",
     videoSrc: Minimap,
+  },
+  {
+    title: "Inline Table Control",
+    titleColor: "text-zinc-900",
+    route: "/inline-table-control",
+    videoSrc: InlineTableControl,
   },
 
 ];
