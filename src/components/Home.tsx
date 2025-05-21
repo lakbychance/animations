@@ -1,15 +1,9 @@
 import { Card } from "./Card";
-import LinearProductThinking from '../assets/videos/Linear_Product_Thinking.mp4'
-import GooeyTooltip from '../assets/videos/Gooey_Tooltip.mp4'
-import Blackhole2D from '../assets/videos/Blackhole_2D.mp4'
-import PeerlistScrollFeedTabs from '../assets/videos/Peerlist_Scroll_Feed_Tabs.mp4'
-import GoStepsClubNavigation from '../assets/videos/GoSteps_Club_Navigation.mp4'
-import Minimap from '../assets/videos/Minimap.mp4'
-import InlineTableControl from '../assets/videos/Inline_Table_Control.mp4'
 interface AnimationCard {
   title: string;
   titleColor: string;
   videoSrc: string;
+  poster: string;
   route: string;
 }
 
@@ -17,44 +11,51 @@ const animations: AnimationCard[] = [
   {
     title: "Linear Product Thinking",
     titleColor: "text-zinc-400",
-    videoSrc: LinearProductThinking,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Linear_Product_Thinking.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Linear_Product_Thinking.mp4/ik-thumbnail.jpg',
     route: "/product-thinking",
   },
   {
     title: "Gooey Tooltip",
     titleColor: "text-zinc-400",
-    videoSrc: GooeyTooltip,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Gooey_Tooltip.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Gooey_Tooltip.mp4/ik-thumbnail.jpg',
     route: "/gooey-tooltip",
   },
   {
     title: "Blackhole 2D",
     titleColor: "text-zinc-400",
-    videoSrc: Blackhole2D,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Blackhole_2D.mp4?tr=q-50',
+    poster: "https://ik.imagekit.io/lapstjup/animations-lak/Blackhole_2D.mp4/ik-thumbnail.jpg",
     route: "/blackhole-2d",
   },
   {
     title: "Peerlist Scroll Feed Tabs",
     titleColor: "text-zinc-400",
     route: "/peerlist-scroll-feed-tabs",
-    videoSrc: PeerlistScrollFeedTabs,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Peerlist_Scroll_Feed_Tabs.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Peerlist_Scroll_Feed_Tabs.mp4/ik-thumbnail.jpg',
   },
   {
     title: "GoSteps Club Navigation",
     titleColor: "text-zinc-900",
     route: "/go-steps-club-navigation",
-    videoSrc: GoStepsClubNavigation,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/GoSteps_Club_Navigation.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/GoSteps_Club_Navigation.mp4/ik-thumbnail.jpg',
   },
   {
     title: "Minimap",
     titleColor: "text-zinc-400",
     route: "/minimap",
-    videoSrc: Minimap,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Minimap.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Minimap.mp4/ik-thumbnail.jpg',
   },
   {
     title: "Inline Table Control",
     titleColor: "text-zinc-900",
     route: "/inline-table-control",
-    videoSrc: InlineTableControl,
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Inline_Table.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Inline_Table.mp4/ik-thumbnail.jpg',
   },
 
 ];
@@ -69,6 +70,7 @@ const VideoCard = ({ animation }: { animation: AnimationCard }) => (
         muted
         autoPlay
         loop
+        poster={animation.poster}
       />
       <p className={`${animation.titleColor} absolute top-3 left-3 text-xs`}>
         {animation.title}
