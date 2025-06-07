@@ -1,4 +1,6 @@
 import { Card } from "./Card";
+import { useEffect, useState } from "react";
+
 interface AnimationCard {
   title: string;
   titleColor: string;
@@ -64,7 +66,7 @@ const VideoCard = ({ animation }: { animation: AnimationCard }) => (
   <Card href={animation.route}>
     <div className="relative">
       <video
-        className="aspect-video rounded-lg w-full h-full object-cover"
+        className="rounded-lg w-full h-full object-cover"
         src={animation.videoSrc}
         playsInline
         muted
@@ -79,16 +81,40 @@ const VideoCard = ({ animation }: { animation: AnimationCard }) => (
   </Card>
 );
 
+const useColumns = () => {
+  const [columns, setColumns] = useState(1);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      if (window.innerWidth >= 1280) { // xl breakpoint
+        setColumns(3);
+      } else if (window.innerWidth >= 768) { // md breakpoint
+        setColumns(2);
+      } else {
+        setColumns(1);
+      }
+    };
+
+    updateColumns();
+    window.addEventListener('resize', updateColumns);
+    return () => window.removeEventListener('resize', updateColumns);
+  }, []);
+
+  return columns;
+};
+
 export function Home() {
+  const columns = useColumns();
+
   return (
-    <div className="w-full min-h-screen bg-[#08090a] p-4">
-      <div className="font-mono grid grid-cols-1 lg:grid-cols-2 gap-4 h-full max-w-[1536px] mx-auto">
-        {[0, 1].map((columnIndex) => (
-          <div key={columnIndex} className="grid gap-4 content-center">
+    <div className="w-full min-h-screen bg-zinc-950 p-4">
+      <div className="font-mono grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 h-full mx-auto">
+        {Array.from({ length: columns }).map((_, columnIndex) => (
+          <div key={columnIndex} className="grid gap-2 content-baseline">
             {animations
               .slice(
-                columnIndex * Math.ceil(animations.length / 2),
-                (columnIndex + 1) * Math.ceil(animations.length / 2)
+                columnIndex * Math.ceil(animations.length / columns),
+                (columnIndex + 1) * Math.ceil(animations.length / columns)
               )
               .map((animation) => (
                 <VideoCard key={animation.route} animation={animation} />
