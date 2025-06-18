@@ -103,11 +103,14 @@ const useColumns = () => {
   return columns;
 };
 
+
 export function Home() {
   const columns = useColumns();
 
   return (
     <div className="w-full min-h-screen bg-zinc-950 p-4">
+
+
       <div className="font-mono grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 h-full mx-auto">
         {Array.from({ length: columns }).map((_, columnIndex) => (
           <div key={columnIndex} className="grid gap-2 content-baseline">
@@ -122,6 +125,7 @@ export function Home() {
           </div>
         ))}
       </div>
+
     </div>
   );
 }
