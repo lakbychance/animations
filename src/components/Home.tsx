@@ -59,7 +59,13 @@ const animations: AnimationCard[] = [
     videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Inline_Table.mp4?tr=q-50',
     poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Inline_Table.mp4/ik-thumbnail.jpg',
   },
-
+  {
+    title: "Timed Undo Button",
+    titleColor: "text-zinc-900",
+    route: "/timed-undo-button",
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Timed_Undo_Button.mp4?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Timed_Undo_Button.mp4/ik-thumbnail.jpg',
+  },
 ];
 
 const VideoCard = ({ animation }: { animation: AnimationCard }) => (

@@ -10,6 +10,7 @@ import { PeerlistScrollFeedTabs } from "./components/PeerlistScrollFeedTabs";
 import { GoStepsClubNavigation } from "./components/GoStepsClubNavigation";
 import { Minimap } from "./components/Minimap";
 import { InlineTableControl } from "./components/InlineTableControl";
+import { TimedUndoButton } from "./components/TimedUndoButton";
 import { useRive } from "@rive-app/react-webgl2";
 
 
@@ -28,6 +29,7 @@ function AppRoutes() {
       />
       <Route path="/minimap" element={<Minimap />} />
       <Route path="/inline-table-control" element={<InlineTableControl />} />
+      <Route path="/timed-undo-button" element={<TimedUndoButton />} />
     </Routes>
 
   );
