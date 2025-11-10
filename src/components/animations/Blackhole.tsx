@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { InteractionContainer } from "../shared/InteractionContainer";
 
 const FluidPath = ({ pathId, speed }: { pathId: string; speed: number }) => {
   const duration = 0.0001 * Math.exp(13.5 - speed);
@@ -168,6 +169,9 @@ export const Blackhole = () => {
 
   useEffect(() => {
     audioRef.current = new Audio("/blackhole.mp3");
+    return () => {
+      audioRef.current?.pause();
+    }
   }, []);
 
   const handlePlay = () => {
@@ -176,7 +180,7 @@ export const Blackhole = () => {
   };
 
   return (
-    <div className="flex contain-strict flex-col perspective-dramatic justify-center items-center h-screen w-full bg-[#08090a]">
+    <InteractionContainer className="contain-strict perspective-dramatic bg-[#08090a]">
       <AnimatePresence>
         {!isPlaying && (
           <motion.button
@@ -242,6 +246,7 @@ export const Blackhole = () => {
         }
       `}</style>
       {isPlaying && <BlacholeSVG />}
-    </div>
+
+    </InteractionContainer>
   );
 };

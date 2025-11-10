@@ -3,6 +3,7 @@ import * as Popover from "@radix-ui/react-popover";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, ReactNode } from "react";
 import React from "react";
+import { InteractionContainer } from "../shared/InteractionContainer";
 
 /* The whole gooey effect is due to the SVG filter */
 const GooeyFilter = () => {
@@ -169,7 +170,7 @@ export const GooeyTooltip = () => {
     : "Damn that's not gooey";
 
   return (
-    <div className="flex font-mono flex-col justify-center items-center h-screen w-full bg-[#08090a]">
+    <InteractionContainer className="font-mono bg-[#08090a]">
       <div className="absolute top-0 left-0">
         {!isSafari && <GooeyFilter />}
       </div>
@@ -188,6 +189,6 @@ export const GooeyTooltip = () => {
           * Effect not supported in this browser (Thanks Webkit)
         </div>
       )}
-    </div>
+    </InteractionContainer>
   );
 };

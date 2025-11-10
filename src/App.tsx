@@ -2,15 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Home } from "./components/Home";
 import { motion, AnimatePresence } from 'framer-motion';
-import { LinearProductThinking } from "./components/LinearProductThinking";
+import { LinearProductThinking } from "./components/animations/LinearProductThinking";
 import "./App.css";
-import { GooeyTooltip } from "./components/GooeyTooltip";
-import { Blackhole } from "./components/Blackhole";
-import { PeerlistScrollFeedTabs } from "./components/PeerlistScrollFeedTabs";
-import { GoStepsClubNavigation } from "./components/GoStepsClubNavigation";
-import { Minimap } from "./components/Minimap";
-import { InlineTableControl } from "./components/InlineTableControl";
-import { TimedUndoButton } from "./components/TimedUndoButton";
+import { GooeyTooltip } from "./components/animations/GooeyTooltip";
+import { Blackhole } from "./components/animations/Blackhole";
+import { PeerlistScrollFeedTabs } from "./components/animations/PeerlistScrollFeedTabs";
+import { GoStepsClubNavigation } from "./components/animations/GoStepsClubNavigation";
+import { Minimap } from "./components/animations/Minimap";
+import { InlineTableControl } from "./components/animations/InlineTableControl";
+import { TimedUndoButton } from "./components/animations/TimedUndoButton";
 import { useRive } from "@rive-app/react-webgl2";
 
 

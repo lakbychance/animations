@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { InteractionContainer } from "../shared/InteractionContainer";
 
 export const LinearProductThinking = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -391,7 +392,8 @@ export const LinearProductThinking = () => {
   }, []); // Run once on mount
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full bg-[#08090a]">
+    <InteractionContainer className="bg-[#08090a]">
+
       <AnimatePresence mode="popLayout">
         {!isCanvasVisible && window.innerWidth >= 768 && (
           <motion.h1
@@ -448,6 +450,7 @@ export const LinearProductThinking = () => {
           )}
         </motion.div>
       </AnimatePresence>
-    </div>
+
+    </InteractionContainer>
   );
 };

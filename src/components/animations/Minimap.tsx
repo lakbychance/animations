@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { InteractionContainer } from '../shared/InteractionContainer';
 
 export const Minimap = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -74,7 +75,7 @@ export const Minimap = () => {
     );
 
     return (
-        <div className="flex font-mono flex-col justify-center items-center min-h-screen w-full bg-[#08090a]">
+        <InteractionContainer className='font-mono bg-[#08090a]'>
             <div aria-hidden="true" className="pointer-events-none user-select-none h-[5000px]"></div>
             <motion.div
                 initial={{ opacity: 0, filter: 'blur(4px)' }}
@@ -110,6 +111,6 @@ export const Minimap = () => {
                     <svg width="10" height="8" viewBox="0 0 7 6" fill="none" className="translate-y-[-12px]"><path className='fill-orange-400' d="M3.54688 6L0.515786 0.75L6.57796 0.75L3.54688 6Z"></path></svg>
                 </motion.div>
             </motion.div>
-        </div>
+        </InteractionContainer>
     )
 };

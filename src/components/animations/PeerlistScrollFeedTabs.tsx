@@ -4,6 +4,7 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { twMerge } from "tailwind-merge";
 import { motion, cubicBezier, MotionConfig } from "framer-motion";
 import clsx from "clsx";
+import { InteractionContainer } from "../shared/InteractionContainer";
 
 const LINKS = {
   NEWEST: "/scroll",
@@ -89,9 +90,8 @@ const calculateNewCircleSize = (
       rectWidth) /
       100) *
     CONSTANTS.GRADIENT_MULTIPLIER;
-  return `${
-    CONSTANTS.DEFAULT_CIRCLE_SIZE + gradientDistance - CONSTANTS.DISTANCE_OFFSET
-  }px`;
+  return `${CONSTANTS.DEFAULT_CIRCLE_SIZE + gradientDistance - CONSTANTS.DISTANCE_OFFSET
+    }px`;
 };
 
 export const PeerlistScrollFeedTabs = () => {
@@ -142,7 +142,7 @@ export const PeerlistScrollFeedTabs = () => {
     const interpolatedGradientPositionInPercent =
       currentGradientPositionInPercent +
       (gradientXPositionInPercent - currentGradientPositionInPercent) *
-        CONSTANTS.INTERPOLATION_FACTOR;
+      CONSTANTS.INTERPOLATION_FACTOR;
 
     setCircleSize(
       calculateNewCircleSize(
@@ -187,7 +187,7 @@ export const PeerlistScrollFeedTabs = () => {
         ease: cubicBezier(0.19, 1, 0.22, 1),
       }}
     >
-      <div
+      <InteractionContainer
         style={
           {
             "--gray-00": COLORS.gray00,
@@ -196,8 +196,9 @@ export const PeerlistScrollFeedTabs = () => {
             "--green-200": COLORS.green200,
           } as React.CSSProperties
         }
-        className="flex font-[Inter] flex-col justify-center items-center h-screen w-full bg-[rgb(var(--gray-00))]"
+        className="font-[Inter] bg-[rgb(var(--gray-00))]"
       >
+
         <Tabs.Root value={activeTab.name} onValueChange={onValueChange}>
           <Tabs.List asChild>
             <motion.div
@@ -292,7 +293,8 @@ export const PeerlistScrollFeedTabs = () => {
             </motion.div>
           </Tabs.List>
         </Tabs.Root>
-      </div>
+
+      </InteractionContainer>
     </MotionConfig>
   );
 };

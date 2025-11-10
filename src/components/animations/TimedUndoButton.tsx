@@ -2,6 +2,7 @@ import { Undo2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
+import { InteractionContainer } from "../shared/InteractionContainer";
 
 const CountdownTimer = ({ initialSeconds, intervalSeconds = 1, onFinish = () => { } }: { initialSeconds: number, intervalSeconds?: number, onFinish?: () => void }) => {
     const [seconds, setSeconds] = useState(initialSeconds);
@@ -153,8 +154,8 @@ export const TimedUndoButtonComponent = () => {
 
 export const TimedUndoButton = () => {
     return (
-        <div className="flex font-[inter] items-center font-bold flex-col  justify-center h-screen bg-white">
+        <InteractionContainer className="font-[inter] font-bold bg-white">
             <TimedUndoButtonComponent />
-        </div>
+        </InteractionContainer>
     );
 };
