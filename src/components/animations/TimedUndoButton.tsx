@@ -22,8 +22,9 @@ const CountdownTimer = ({ initialSeconds, intervalSeconds = 1, onFinish = () => 
     const secondsString = `${seconds}`
     const digits = secondsString.split('');
     return (
+        // position:relative is needed here to prevent flickering of countdown text in iOS Safari
         <div style={{ boxShadow: `inset 0px -4px 10px maroon`, textShadow: `0px 1px 4px maroon` }}
-            className="bg-red-500 text-white w-10 py-1 rounded-full">
+            className="bg-red-500 text-white w-10 py-1 rounded-full relative">
             <AnimatePresence mode='popLayout' initial={false} >
                 {
                     digits.map((digit, index) => {
