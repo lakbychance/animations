@@ -180,40 +180,44 @@ export const Blackhole = () => {
   };
 
   return (
-    <InteractionContainer className="contain-strict perspective-dramatic bg-[#08090a]">
-      <AnimatePresence>
-        {!isPlaying && (
-          <motion.button
-            onClick={handlePlay}
-            className="absolute z-50 flex items-center justify-center w-20 h-20 text-white/50 hover:text-white/80"
-            initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
-            animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-            exit={{
-              opacity: 0,
-              filter: "blur(4px)",
-              scale: 0.8,
-              transition: { duration: 0.25, type: "easeOut" },
-            }}
-            transition={{ duration: 1, type: "easeIn" }}
-          >
-            <motion.svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <circle cx="24" cy="24" r="22" />
-              <path d="M20 16l12 8-12 8z" />
-            </motion.svg>
-          </motion.button>
-        )}
-      </AnimatePresence>
+    <InteractionContainer className="bg-[#08090a]">
+      <div className="contain-strict perspective-dramatic flex flex-col items-center justify-center h-full w-full">
+        <AnimatePresence>
+          {
+            !isPlaying && (
+              <motion.button
+                onClick={handlePlay}
+                className="absolute z-50 flex items-center justify-center w-20 h-20 text-white/50 hover:text-white/80"
+                initial={{ opacity: 0, filter: "blur(4px)", scale: 0.8 }}
+                animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                exit={{
+                  opacity: 0,
+                  filter: "blur(4px)",
+                  scale: 0.8,
+                  transition: { duration: 0.25, type: "easeOut" },
+                }}
+                transition={{ duration: 1, type: "easeIn" }}
+              >
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <circle cx="24" cy="24" r="22" />
+                  <path d="M20 16l12 8-12 8z" />
+                </motion.svg>
+              </motion.button>
+            )
+          }
+        </AnimatePresence >
 
-      <style>{`
+
+        <style>{`
         @keyframes move {
           0% {
             offset-distance: 0%;
@@ -245,8 +249,8 @@ export const Blackhole = () => {
           }
         }
       `}</style>
-      {isPlaying && <BlacholeSVG />}
-
+        {isPlaying && <BlacholeSVG />}
+      </div>
     </InteractionContainer>
   );
 };

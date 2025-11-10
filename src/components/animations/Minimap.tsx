@@ -75,7 +75,7 @@ export const Minimap = () => {
     );
 
     return (
-        <InteractionContainer className='font-mono bg-[#08090a]'>
+        <InteractionContainer className="font-mono h-auto min-h-screen bg-[#08090a]">
             <div aria-hidden="true" className="pointer-events-none user-select-none h-[5000px]"></div>
             <motion.div
                 initial={{ opacity: 0, filter: 'blur(4px)' }}

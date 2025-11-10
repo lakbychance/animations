@@ -3,7 +3,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { twMerge } from "tailwind-merge";
 import { motion, cubicBezier, MotionConfig } from "framer-motion";
-import clsx from "clsx";
+import { cn } from "../../utils/cn";;
 import { InteractionContainer } from "../shared/InteractionContainer";
 
 const LINKS = {
@@ -46,7 +46,7 @@ const BaseTabsLabel = ({
 }: {
   children: React.ReactNode;
   className: string;
-}) => <p className={clsx("font-semibold text-xs", className)}>{children}</p>;
+}) => <p className={cn("font-semibold text-xs", className)}>{children}</p>;
 
 const InactiveTabsLabel = ({ children }: { children: React.ReactNode }) => (
   <BaseTabsLabel className="text-[rgb(var(--gray-1k))]">

@@ -1,7 +1,7 @@
 import { Undo2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import clsx from "clsx";
+import { cn } from "../../utils/cn";;
 import { InteractionContainer } from "../shared/InteractionContainer";
 
 const CountdownTimer = ({ initialSeconds, intervalSeconds = 1, onFinish = () => { } }: { initialSeconds: number, intervalSeconds?: number, onFinish?: () => void }) => {
@@ -123,7 +123,7 @@ export const TimedUndoButtonComponent = () => {
                             return DELETE_STATUS.CANCELLED;
                         })
                     }}
-                    className={clsx("flex items-center gap-2 h-14 py-2 rounded-full", isDeleting ? "px-4" : "px-6")}
+                    className={cn("flex items-center gap-2 h-14 py-2 rounded-full", isDeleting ? "px-4" : "px-6")}
                 >
                     <>
                         {isDeleting && (

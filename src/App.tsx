@@ -64,7 +64,7 @@ function App() {
               opacity: 0
             }}
             key='intro'
-            className="h-screen w-full"
+            className="h-svh w-full"
           >
             <Intro />
           </motion.div>

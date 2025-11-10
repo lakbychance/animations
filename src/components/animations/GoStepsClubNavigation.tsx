@@ -2,7 +2,7 @@ import { Home, BarChart, Settings } from "lucide-react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useState, useLayoutEffect, useRef } from "react";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import clsx from "clsx";
+import { cn } from "../../utils/cn";
 import { InteractionContainer } from "../shared/InteractionContainer";
 const TAB_IDS = {
     HOME: 'home',
@@ -87,7 +87,7 @@ export const GoStepsClubNavigation = () => {
                                     ref={(el) => tabRefs.current[item.id] = el}
                                     asChild
                                 >
-                                    <button className={clsx("flex items-center gap-1 px-2 py-3 rounded-full relative", activeTab === item.id && "px-5")}   >
+                                    <button className={cn("flex items-center gap-1 px-2 py-3 rounded-full relative", activeTab === item.id && "px-5")}   >
                                         <motion.div
                                             layoutId={`tab-${item.id}`}
                                             initial={false}

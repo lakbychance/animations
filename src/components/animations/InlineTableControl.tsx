@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { FileText, Layers, ArrowUpRight, Edit2, X, Check } from "lucide-react";
 import { motion, MotionConfig } from "framer-motion";
 import FocusLock from 'react-focus-lock';
-import clsx from "clsx";
+import { cn } from "../../utils/cn";;
 import { InteractionContainer } from "../shared/InteractionContainer";
 
 const IconWrapper = ({ children = null, className = "" }: { children?: React.ReactNode, className?: string }) => (
@@ -190,7 +190,7 @@ export const InlineTableControl = () => {
                             // Just using layout prop squishes the row so we are using layout='position' to animate the row
                             layout='position'
                             key={expense.id}
-                            className={clsx("grid grid-cols-4 gap-2 py-4 border-b border-gray-200")}
+                            className={cn("grid grid-cols-4 gap-2 py-4 border-b border-gray-200")}
                         >
 
                             {editingId === expense.id ? (
