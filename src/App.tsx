@@ -12,6 +12,7 @@ import { Minimap } from "./components/animations/Minimap";
 import { InlineTableControl } from "./components/animations/InlineTableControl";
 import { TimedUndoButton } from "./components/animations/TimedUndoButton";
 import { useRive } from "@rive-app/react-webgl2";
+import { ChronicleChaptersNavMenu } from "./components/animations/ChronicleChaptersNavMenu";
 
 
 
@@ -30,6 +31,7 @@ function AppRoutes() {
       <Route path="/minimap" element={<Minimap />} />
       <Route path="/inline-table-control" element={<InlineTableControl />} />
       <Route path="/timed-undo-button" element={<TimedUndoButton />} />
+      <Route path="/chronicle-chapters-nav-menu" element={<ChronicleChaptersNavMenu />} />
     </Routes>
 
   );

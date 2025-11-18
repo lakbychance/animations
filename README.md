@@ -8,3 +8,4 @@
 - [Minimap](https://x.com/raunofreiberg/status/1896620025198580039) - Recreation of [Minimap UX](https://rauno.me/craft/minimap) by Rauno
 - [Inline Table](https://x.com/nitishkmrk/status/1913483954646139265) - UI implementation of Inline table control interaction by Nitish Khagwal. 
 - [Timed Undo Button](https://x.com/nitishkmrk/status/1986684038409589227) - UI implementation of Timed Undo Button interaction by Nitish Khagwal.
+- [Chronicle Chapters Nav Menu](https://app.chroniclehq.com/share/51cc6d69-94bb-40b1-9340-7f19eefcfdc8/ee625781-1635-4b24-b90a-5b71c9735af9/72844a3e-c151-4e54-9873-5d3f4af9c835)

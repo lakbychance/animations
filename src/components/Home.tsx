@@ -66,6 +66,13 @@ const animations: AnimationCard[] = [
     videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Timed_Undo_Button.mp4?tr=q-50',
     poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Timed_Undo_Button.mp4/ik-thumbnail.jpg',
   },
+  {
+    title: "Chronicle Chapters Nav Menu",
+    titleColor: "text-zinc-400",
+    route: "/chronicle-chapters-nav-menu",
+    videoSrc: 'https://ik.imagekit.io/lapstjup/animations-lak/Chronicle_Chapters_Nav_Menu.mov?tr=q-50',
+    poster: 'https://ik.imagekit.io/lapstjup/animations-lak/Chronicle_Chapters_Nav_Menu.mov/ik-thumbnail.jpg',
+  }
 ];
 
 const VideoCard = ({ animation }: { animation: AnimationCard }) => (
