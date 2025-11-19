@@ -46,7 +46,10 @@ export const ChronicleChaptersNavMenu = () => {
     const handleSelection = (id: ItemId) => {
         setSelected(id);
         const element = document.getElementById(id);
-        element?.scrollIntoView()
+        // rAF minimizes flicker of nav when selected
+        requestAnimationFrame(() => {
+            element?.scrollIntoView()
+        })
     }
 
     return (
