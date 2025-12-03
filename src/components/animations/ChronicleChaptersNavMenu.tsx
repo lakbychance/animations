@@ -77,7 +77,7 @@ export const ChronicleChaptersNavMenu = () => {
                                 key='items-lines' layoutId='items-container' className={cn("flex flex-col gap-1.5 w-10 overflow-clip")}>
                                 {items.map((item) =>
                                     <motion.li
-
+                                        key={item.id}
                                         layoutId={item.id}
                                         className={cn("h-0.5 bg-zinc-50/50 w-3", selected === item.id && "bg-zinc-50 w-6")}>
                                     </motion.li>
@@ -98,7 +98,7 @@ export const ChronicleChaptersNavMenu = () => {
                                         <motion.li
                                             layoutId={item.id}
                                             id={`${item.id}-card`}
-
+                                            key={item.id}
                                         >
                                             <button data-autofocus={selected === item.id} onClick={() => handleSelection(item.id)} className={cn("flex transition-colors items-center text-xl justify-center text-white w-40 h-20 bg-black rounded-md border border-zinc-800/50 hover:border-zinc-600 focus-visible:border-blue-500 ", selected === item.id && "border-zinc-200 hover:border-zinc-200 focus-visible:border-zinc-200")}>
                                                 {index + 1}
